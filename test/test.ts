@@ -33,6 +33,15 @@ Deno.test({
   }
 });
 
+Deno.test({
+  name: "It will not try to call dequeue on an empty queue",
+  fn(): void {
+    const queue = new ConstantQueue();
+    assertEquals(null, queue.dequeue());
+  }
+});
+
+
 Deno.test(function example(): void {
   assertEquals("hello", "hello");
 });

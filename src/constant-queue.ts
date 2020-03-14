@@ -11,7 +11,10 @@ export class ConstantQueue {
     this.queueSize++;
   }
 
-  dequeue(): number {
+  dequeue(): number | null {
+    if (this.queueSize < 1) {
+      return null;
+    }
     const storageKeys = Object.keys(this.storage);
     const val = this.storage[storageKeys[0]];
     delete this.storage[storageKeys[0]]
@@ -19,3 +22,20 @@ export class ConstantQueue {
     return val;
   }
 }
+
+/*
+function Queue() {
+  this.q = [];
+  this.idx = 0;
+}
+
+Queue.prototype.size = function() { return this.q.length-this.idx; };
+
+Queue.prototype.enqueue = function(item){
+  this.q.push(item)
+};
+
+Queue.prototype.dequeue = function() {
+  return (this.size() < 1)? undefined : this.q[this.idx++];
+}
+*/
