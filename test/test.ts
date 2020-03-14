@@ -29,7 +29,7 @@ Deno.test({
     queue.enqueue(20);
     queue.enqueue(25);
     queue.enqueue(42);
-    assertEquals(42, queue.dequeue());
+    assertEquals(20, queue.dequeue());
   }
 });
 

@@ -12,8 +12,9 @@ export class ConstantQueue {
   }
 
   dequeue(): number {
-    const val = this.storage[this.queueSize - 1];
-    delete this.storage[this.queueSize - 1]
+    const storageKeys = Object.keys(this.storage);
+    const val = this.storage[storageKeys[0]];
+    delete this.storage[storageKeys[0]]
     this.queueSize--;
     return val;
   }
